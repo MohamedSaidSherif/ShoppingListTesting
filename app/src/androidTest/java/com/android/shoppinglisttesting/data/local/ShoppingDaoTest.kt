@@ -9,8 +9,6 @@ import androidx.test.filters.SmallTest
 import com.android.shoppinglisttesting.getOrAwaitValue
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
@@ -54,7 +52,7 @@ class ShoppingDaoTest {
             name = "name",
             amount = 1,
             price = 1f,
-            imageUri = "url",
+            imageUrl = "url",
             id = 1
         )
         dao.insertShoppingItem(shoppingItem)
@@ -69,7 +67,7 @@ class ShoppingDaoTest {
             name = "name",
             amount = 1,
             price = 1f,
-            imageUri = "url",
+            imageUrl = "url",
             id = 1
         )
         dao.insertShoppingItem(shoppingItem)

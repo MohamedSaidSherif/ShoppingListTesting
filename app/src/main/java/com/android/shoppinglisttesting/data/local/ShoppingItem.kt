@@ -8,7 +8,7 @@ data class ShoppingItem(
     var name: String,
     var amount: Int,
     var price: Float,
-    var imageUri: String,
+    var imageUrl: String,
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
 )
