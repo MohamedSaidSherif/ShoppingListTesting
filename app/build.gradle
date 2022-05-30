@@ -17,8 +17,10 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
+        buildConfigField("String", "API_KEY", API_KEY)
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.android.shoppinglisttesting.HiltTestRunner"
     }
 
     buildTypes {
@@ -87,8 +89,6 @@ dependencies {
     //Dagger - Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     // Timber
@@ -109,9 +109,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "junit:junit:4.13.2"
-    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.12.1"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation "com.google.truth:truth:1.1.3"
     androidTestImplementation "org.mockito:mockito-core:4.0.0"
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.40.5'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.41'
 }
