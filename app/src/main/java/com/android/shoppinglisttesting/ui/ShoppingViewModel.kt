@@ -34,6 +34,10 @@ class ShoppingViewModel @Inject constructor(
     val insertShoppingItemStatus: LiveData<Event<Resource<ShoppingItem>>> =
         _insertShoppingItemStatus
 
+    init {
+        getAllImages()
+    }
+
     fun setCurImageUrl(url: String) {
         _currentImageUrl.postValue(url)
     }
@@ -101,6 +105,14 @@ class ShoppingViewModel @Inject constructor(
         insertShoppingItemIntoDB(shoppingItem)
         setCurImageUrl("")
         _insertShoppingItemStatus.postValue(Event(Resource.success(shoppingItem)))
+    }
+
+    fun getAllImages() {
+        _images.value = Event(Resource.loading(null))
+        viewModelScope.launch {
+            val response = repository.getAllImages()
+            _images.value = Event(response)
+        }
     }
 
     fun searchForImage(imageQuery: String) {

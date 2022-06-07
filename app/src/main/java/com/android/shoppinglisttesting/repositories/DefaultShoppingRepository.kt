@@ -30,6 +30,22 @@ class DefaultShoppingRepository @Inject constructor(
         return shoppingDao.observeTotalPrice()
     }
 
+    override suspend fun getAllImages(): Resource<ImageResponse> {
+        return try {
+            val response = pixabayAPI.getAllImages()
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    return@let Resource.success(it)
+                } ?: Resource.error("An unknown error occurred", null)
+            } else {
+                Resource.error("An unknown error occurred", null)
+            }
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+            Resource.error("Couldn't reach the server. Check your internet connection", null)
+        }
+    }
+
     override suspend fun searchForImage(imageQuery: String): Resource<ImageResponse> {
         return try {
             val response = pixabayAPI.searchForImage(imageQuery)
