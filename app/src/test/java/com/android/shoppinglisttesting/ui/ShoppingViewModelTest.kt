@@ -19,10 +19,10 @@ import org.junit.Test
 class ShoppingViewModelTest {
 
     @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
+    var instantTaskExecutorRule = InstantTaskExecutorRule() // make sure that all everything run in the same thread sequentially
 
     @get: Rule
-    var mainCoroutineRule = MainCoroutineRule2()
+    var mainCoroutineRule = MainCoroutineRule2() // we do that as the view model uses the main dispatcher which we don't have it in our test
 
     private lateinit var viewModel: ShoppingViewModel
 

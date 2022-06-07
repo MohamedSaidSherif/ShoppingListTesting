@@ -9,7 +9,6 @@ import com.android.shoppinglisttesting.data.remote.responses.ImageResponse
 import com.android.shoppinglisttesting.other.Constants
 import com.android.shoppinglisttesting.other.Event
 import com.android.shoppinglisttesting.other.Resource
-import com.android.shoppinglisttesting.other.Status
 import com.android.shoppinglisttesting.repositories.ShoppingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
