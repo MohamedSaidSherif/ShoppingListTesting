@@ -1,7 +1,6 @@
 package com.android.shoppinglisttesting.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.android.shoppinglisttesting.MainCoroutineRule
 import com.android.shoppinglisttesting.MainCoroutineRule2
 import com.android.shoppinglisttesting.getOrAwaitValue
 import com.android.shoppinglisttesting.other.Constants

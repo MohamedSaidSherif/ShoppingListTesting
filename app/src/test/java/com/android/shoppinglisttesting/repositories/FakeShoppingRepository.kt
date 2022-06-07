@@ -44,6 +44,14 @@ class FakeShoppingRepository : ShoppingRepository {
         return observableTotalPrice
     }
 
+    override suspend fun getAllImages(): Resource<ImageResponse> {
+        return if (shouldReturnNetworkError) {
+            Resource.error("Error", null)
+        } else {
+            Resource.success(ImageResponse(listOf(), 0, 0))
+        }
+    }
+
     override suspend fun searchForImage(imageQuery: String): Resource<ImageResponse> {
         return if (shouldReturnNetworkError) {
             Resource.error("Error", null)
